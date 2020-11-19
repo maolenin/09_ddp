@@ -1,0 +1,33 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Mao Soldevilla"
+date: "13/11/2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+```
+
+## R Markdown
+
+This is the second project of Developing Data Products Course of Data Science 
+Specialization of John Hopkins University - Coursera.
+
+This Project is to show how to work with plotly.
+
+
+## mpg vs wt per Cylinder
+
+```{r cars, echo = TRUE, message=FALSE, warning=FALSE}
+p <- plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl)) %>%
+  layout(title = "mpg vs wt per Cylinder")
+p
+```
+
+## Surface
+```{r suface, echo = TRUE, message=FALSE, warning=FALSE}
+terrain <- matrix(sort(rnorm(100*100)), nrow = 100, ncol = 100)
+plot_ly(z = ~terrain, type = "surface")
+```
